@@ -32,24 +32,29 @@ public class Animal {
     public Animal() {
 
     }
+
     public Animal(String color, int numberOfPaws, boolean hasFur) {
         this.color = color;
         this.numberOfPaws = numberOfPaws;
         this.hasFur = hasFur;
     }
 
-    protected void getDescription(String color, int numberOfPaws, boolean hasFur) {
+    public String getDescription() {
         if (numberOfPaws == 1) {
-            System.out.println("This animal is mostly " + color + ". It has " + numberOfPaws + " paw and ('a'/'no' -> depends on value of" + hasFur + ") fur.");
+            return "This animal is mostly " + color + ". It has " + numberOfPaws + " paw and a fur.";
+        } else if (color == "blue") {
+            return "This animal is mostly " + color + ". It has " + numberOfPaws + " paws and no fur.";
         } else {
-            System.out.println("This animal is mostly " + color + ". It has " + numberOfPaws + " paws and ('a'/'no' -> depends on value of" + hasFur + ") fur.");
+            return "This animal is mostly " + color + ". It has " + numberOfPaws + " paws and a fur.";
         }
     }
 
     public static void main(String[] args) {
         Dog dog = new Dog();
-        dog.getDescription("blue", 2, true);
+        String a = dog.getDescription();
+        System.out.println(a);
         Bird bird = new Bird();
-        bird.getDescription("brown", 4, false);
+        String b = bird.getDescription();
+        System.out.println(b);
     }
 }
